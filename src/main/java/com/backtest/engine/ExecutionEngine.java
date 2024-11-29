@@ -72,7 +72,7 @@ public class ExecutionEngine {
 
     // Simple summary from trading results
     private void summarizeResults(double finalPrice) {
-        LOG.info("\n====== Portfolio Summary ======");
+        LOG.info("\n================== Portfolio Summary ==================");
         LOG.info("Final Cash Balance: {}", cashBalance);
         String sharesOwnedMsg = String.format("%.3f", sharesOwned);
         LOG.info("Shares Owned: {}", sharesOwnedMsg);
@@ -81,6 +81,6 @@ public class ExecutionEngine {
         String netProfitMsg = String.format("%.3f", netProfit);
         double netProfitPercentage = (netProfit / initialCashBalance) * 100;
         String netProfitPercentageMsg = String.format("%.3f", netProfitPercentage);
-        LOG.info("Net Profit: {}, in percentage {}%", netProfitMsg, netProfitPercentageMsg);
+        LOG.info("Net Profit: {}, in percent {}%", netProfitMsg, netProfitPercentageMsg);
     }
 }

@@ -21,7 +21,7 @@ This project is to create a simple framework that allows users to test trading s
 2. Database Connection: Any database parameter e.g. `password` also needs to be added in the `application.properties` file. In this example, H2 database has been used for demonstration.
 
 ## Roadmap
-The project is still in development, below are some key features to do next:
+The project is still under development, below are some key features to do next:
 1. Build a metric system to measure the performance of each backtest in order to get user a better summary and more insights.
 2. Add more trading strategies. Currently there are only two basic strategies `Simple Moving Average` and `Exponential Moving Average` are available.
 3. Write tests, e.g, unit tests, function tests etc.

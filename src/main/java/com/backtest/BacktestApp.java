@@ -24,7 +24,7 @@ public class BacktestApp {
         initializeDataBase();
 
         List<StockData> historicalPriceData = fetchData(ticker);
-        if (historicalPriceData.isEmpty()) return;
+        if (historicalPriceData.isEmpty()) return; // Exit the program if data is empty
         insertHistoricalPriceData(ticker, historicalPriceData);
 
         Date[] availableDateRange = getAvailableDateRange(ticker);
@@ -96,7 +96,7 @@ public class BacktestApp {
      */
     private static Date[] getAvailableDateRange(String ticker) {
         Date[] availableDateRange = DataRepository.getAvailableDateRange(ticker);
-        LOG.info("Available dates for {} are {} to {}", ticker, availableDateRange[0], availableDateRange[1]);
+        LOG.info("Available dates for {} historical data are {} to {}", ticker, availableDateRange[0], availableDateRange[1]);
         return availableDateRange;
     }
 

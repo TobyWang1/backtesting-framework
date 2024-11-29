@@ -1,5 +1,8 @@
 # Backtesting Framework
 
+## Description
+This project is to create a simple framework that allows users to test trading strategies against historical market data.
+
 ## Main Objectives
 1. Calling API to retrieve the historical market data.
 2. Storing the fetched market data into database.

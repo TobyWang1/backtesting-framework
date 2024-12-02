@@ -10,7 +10,6 @@ import java.util.List;
 
 public class ExecutionEngine {
     private static final Logger LOG = LoggerFactory.getLogger(ExecutionEngine.class);
-    private static final double TRADE_RISK_PERCENT = 0.2; // Risk 20% of the portfolio on each trade.
 
     private double cashBalance;
     private double sharesOwned;
@@ -45,12 +44,11 @@ public class ExecutionEngine {
      * @param signal a list of TradeSignal objects
      */
     private double executeBuy(TradeSignal signal) {
-        double tradeRiskAmount = TRADE_RISK_PERCENT * initialCashBalance;
-        double sharesToBuy = (tradeRiskAmount / signal.getPrice());
+        double sharesToBuy = (initialCashBalance / signal.getPrice());
         if (sharesToBuy > 0) {
             cashBalance -= sharesToBuy * signal.getPrice();
             sharesOwned += sharesToBuy;
-            String msg = "Executed BUY: " + sharesToBuy + " shares at " + signal.getPrice() + " on " + signal.getDate();
+            String msg = "Executed BUY: " + sharesToBuy + " shares at " + signal.getPrice() + " on " + signal.getDate() + ", cash balance is: " + cashBalance;
             LOG.info(msg);
         }
         return signal.getPrice();
@@ -63,7 +61,7 @@ public class ExecutionEngine {
     private double executeSell(TradeSignal signal) {
         if (sharesOwned > 0) {
             cashBalance += sharesOwned * signal.getPrice();
-            String msg = "Executed SELL: " + sharesOwned + " shares at " + signal.getPrice() + " on " + signal.getDate();
+            String msg = "Executed SELL: " + sharesOwned + " shares at " + signal.getPrice() + " on " + signal.getDate() + ", cash balance is: " + cashBalance;
             LOG.info(msg);
             sharesOwned = 0;
         }
